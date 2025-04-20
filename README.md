@@ -2,7 +2,7 @@
 
 # student-survey-django
 
-# 📝 Student Survey App (Django Version) - SWE 645 Extra Credit
+# Student Survey App (Django Version) - SWE 645 Extra Credit
 
 This project is a Python/Django reimplementation of Project #2 from SWE 645. It provides full CRUD operations for student surveys, backed by a MySQL database and deployed to a Kubernetes cluster using a CI/CD pipeline powered by Jenkins, Docker, and GitHub.
 
