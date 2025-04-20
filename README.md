@@ -24,5 +24,5 @@ This project is a Python/Django reimplementation of Project #2 from SWE 645. It 
 
 1. Clone the repo:
    bash
-   git clone https://github.com/YOUR_USERNAME/student-survey-django-cicd.git
-   cd student-survey-django-cicd
+   git clone https://github.com/YOUR_USERNAME/student-survey-django.git
+   cd student-survey-django
