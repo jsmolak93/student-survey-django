@@ -20,6 +20,35 @@ This project is a Python/Django reimplementation of Project #2 from SWE 645. It 
 
 ---
 
+# Student Survey App (Django Version) - SWE 645 HW3 Extra Credit
+
+This is the Python/Django reimplementation of our SWE 645 Homework 3 microservices project. It replaces the original Spring Boot backend with Django and retains MySQL as the database. The project is containerized using Docker and deployed through a CI/CD pipeline on Kubernetes via Rancher.
+
+## Tech Stack
+- **Python 3.10+**
+- **Django 4.x**
+- **MySQL (via Amazon RDS)**
+- **Docker**
+- **Kubernetes (Rancher-managed cluster)**
+- **Jenkins (CI/CD pipeline)**
+- **GitHub**
+
+## Features
+- Full CRUD for survey entries
+- Django REST API (`/surveys`)
+- Uses Django ORM for data persistence
+- Connects to MySQL database hosted on RDS
+- CI/CD pipeline builds and deploys Docker image to Kubernetes
+
+## Endpoints (REST API)
+| Method | Endpoint         | Description              |
+|--------|------------------|--------------------------|
+| GET    | `/surveys`       | List all surveys         |
+| POST   | `/surveys`       | Create new survey        |
+| GET    | `/surveys/{id}`  | Get survey by ID         |
+| PUT    | `/surveys/{id}`  | Update survey            |
+| DELETE | `/surveys/{id}`  | Delete survey            |
+
 ## Project Setup
 
 1. Clone the repo:
