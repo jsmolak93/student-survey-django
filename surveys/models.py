@@ -12,7 +12,7 @@ class Survey(models.Model):
     survey_date = models.DateField()
     liked_most = models.CharField(max_length=255)
     interest_source = models.CharField(max_length=255)
-    recommend_likelihood = models.IntegerField()
+    recommend_likelihood = models.CharField(max_length=50)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
