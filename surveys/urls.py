@@ -1,10 +1,10 @@
-from django.urls import path
-from . import views
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import SurveyViewSet
+
+router = DefaultRouter()
+router.register(r'surveys', SurveyViewSet)
 
 urlpatterns = [
-    path('surveys/', views.get_all_surveys),
-    path('surveys/<int:id>/', views.get_survey_by_id),
-    path('surveys/create/', views.create_survey),
-    path('surveys/update/<int:id>/', views.update_survey),
-    path('surveys/delete/<int:id>/', views.delete_survey),
+    path('', include(router.urls)),
 ]

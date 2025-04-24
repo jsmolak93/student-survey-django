@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.http import HttpResponse
+from rest_framework.routers import DefaultRouter
+from surveys.views import SurveyViewSet  
+
+router = DefaultRouter()
+router.register(r'surveys', SurveyViewSet, basename='survey')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('surveys.urls')),
+    path('', include(router.urls)),  
 ]
