@@ -55,3 +55,16 @@ This is the Python/Django reimplementation of our SWE 645 Homework 3 microservic
    bash
    git clone https://github.com/YOUR_USERNAME/student-survey-django.git
    cd student-survey-django
+
+   # Create a virtual environment
+   python -m venv venv
+   source venv/bin/activate  # On Windows use: venv\Scripts\activate
+   
+   # Install dependencies
+   pip install -r requirements.txt
+   
+   # Run migrations
+   python manage.py migrate
+   
+   # Start the development server
+   python manage.py runserver
