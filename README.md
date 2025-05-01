@@ -49,6 +49,21 @@ This is the Python/Django reimplementation of our SWE 645 Homework 3 microservic
 | PUT    | `/surveys/{id}`  | Update survey            |
 | DELETE | `/surveys/{id}`  | Delete survey            |
 
+## Database Info (RDS)
+- Engine: MySQL (via PyMySQL)
+- Host: swe645-db.csbm422uygzr.us-east-1.rds.amazonaws.com
+- Database Name: swe645-DB
+- User: admin
+- Password: Choose80??
+- Port: 3306
+
+## Admin Panel Access
+- http://localhost:8000/admin/          (on local)
+- http://<EC2_PUBLIC_IP>:8000/admin/    (on server)
+- username: admin; password: georgemason
+- tables: surveys
+
+
 ## Project Setup
 
 1. Clone the repo:
