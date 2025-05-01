@@ -1,18 +1,21 @@
-#  base image
+# Base image
 FROM python:3.13-slim
 
-# Prevent Python from buffering stdout/stderr
+# Avoids buffering
 ENV PYTHONUNBUFFERED=1
 
 # Set working directory
 WORKDIR /app
 
-# Install dependencies
+# Copy and install Python dependencies
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy rest of the app
+# Copy the rest of the application
 COPY . .
 
-# Run Django server
+# Expose port
+EXPOSE 8000
+
+# Run Django dev server
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
