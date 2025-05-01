@@ -66,20 +66,15 @@ This is the Python/Django reimplementation of our SWE 645 Homework 3 microservic
 
 ## Project Setup
 
-1. Clone the repo:
-   bash
-   git clone https://github.com/YOUR_USERNAME/student-survey-django.git
-   cd student-survey-django
+1. ## Project Setup (via Docker)
 
-   # Create a virtual environment
-   python -m venv venv
-   source venv/bin/activate  # On Windows use: venv\Scripts\activate
-   
-   # Install dependencies
-   pip install -r requirements.txt
-   
-   # Run migrations
-   python manage.py migrate
-   
-   # Start the development server
-   python manage.py runserver
+Clone the repo:
+
+- bash
+- git clone https://github.com/jsmolak93/student_survey_django.git
+- cd student_survey_django
+
+2. ## Build Container
+
+- docker build -t swe645-django .
+- docker run -p 8000:8000 swe645-django
