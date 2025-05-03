@@ -46,7 +46,7 @@ pipeline {
 
         stage('Run Database Migrations') {
             steps {
-                withCredentials([file(credentialsId: KUBECONFIG_FILE,
+                withCredentials([file(credentialsId: kubeConfig,
                                         variable: 'KUBECONFIG')]) {
                     sh """
                         # Launch one-off Job to run migrations; ignore errors so deploy always runs
