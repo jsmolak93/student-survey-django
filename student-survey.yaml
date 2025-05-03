@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Config
+clusters:
+- name: "student-survey"
+  cluster:
+    server: "https://ec2-34-237-241-122.compute-1.amazonaws.com/k8s/clusters/c-m-q7tr8xz5"
+    certificate-authority-data: "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJ2akNDQ\
+      VdPZ0F3SUJBZ0lCQURBS0JnZ3Foa2pPUFFRREFqQkdNUnd3R2dZRFZRUUtFeE5rZVc1aGJXbGoKY\
+      kdsemRHVnVaWEl0YjNKbk1TWXdKQVlEVlFRRERCMWtlVzVoYldsamJHbHpkR1Z1WlhJdFkyRkFNV\
+      GMwTmpJdwpNVGd4T0RBZUZ3MHlOVEExTURJeE5qQXpNemhhRncwek5UQTBNekF4TmpBek16aGFNR\
+      Vl4SERBYUJnTlZCQW9UCkUyUjVibUZ0YVdOc2FYTjBaVzVsY2kxdmNtY3hKakFrQmdOVkJBTU1IV\
+      1I1Ym1GdGFXTnNhWE4wWlc1bGNpMWoKWVVBeE56UTJNakF4T0RFNE1Ga3dFd1lIS29aSXpqMENBU\
+      VlJS29aSXpqMERBUWNEUWdBRVlSRmtJNGZhc2xiWQp5ODhDbCtOOUlEQ0xiUXB4ME14eHU4a3ZMU\
+      VpVa2RQcFIycFFRYVAxN3E1cDdrQ2tGeElwYnVCRURtUVBUdzVwCkFGU3BtcnJvZ0tOQ01FQXdEZ\
+      1lEVlIwUEFRSC9CQVFEQWdLa01BOEdBMVVkRXdFQi93UUZNQU1CQWY4d0hRWUQKVlIwT0JCWUVGS\
+      VFCc05VWHhHdzhISmZJdjN4VXladndRNnFOTUFvR0NDcUdTTTQ5QkFNQ0Ewa0FNRVlDSVFEagp4c\
+      2FxQk95by91YmhaWUo4M2srSWJNSXUzK1Jsd0tzOTEva2I1bStrT3dJaEFMclMvYTJ6L2lCenRxZ\
+      lMrUE1MCktLSG5RbFBTaDA5eFl0WHk5N2NKV0hpTQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0t"
+
+users:
+- name: "student-survey"
+  user:
+    token: "kubeconfig-user-l9n78pqxlb:z445hs6fgqcjrzmnztlpv9plqrxf494k5btz9v7gs9dx2g8hds2znx"
+
+
+contexts:
+- name: "student-survey"
+  context:
+    user: "student-survey"
+    cluster: "student-survey"
+
+current-context: "student-survey"

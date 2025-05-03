@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-student-survey
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: survey
+  template:
+    metadata:
+      labels:
+        app: survey
+    spec:
+      containers:
+        - name: survey
+          image: gautam26/student-survey-django:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DJANGO_DB_NAME
+              value: "swe645-DB"
+            - name: DJANGO_DB_USER
+              value: "admin"
+            - name: DJANGO_DB_PASSWORD
+              value: "Choose80??"
+            - name: DJANGO_DB_HOST
+              value: "swe645-db.csbm422uygzr.us-east-1.rds.amazonaws.com"
+            - name: DJANGO_DB_PORT
+              value: "3306"
+            - name: DJANGO_ALLOWED_HOSTS
+              value: "*"
