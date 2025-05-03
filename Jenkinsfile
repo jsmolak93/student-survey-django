@@ -8,7 +8,6 @@ pipeline {
     environment {
         DOCKERHUB_PASS  = credentials('docker_credentials')
         BUILD_TIMESTAMP = new Date().format("yyyyMMdd-HHmmss", TimeZone.getTimeZone("UTC"))
-        KUBE_NAMESPACE  = 'swe645'
     }
 
     stages {
@@ -52,7 +51,7 @@ pipeline {
                         # Launch one-off Job to run migrations; ignore errors so deploy always runs
                         kubectl create job django-migrate-${BUILD_TIMESTAMP} \
                             --image=jsmolak93/swe645:latest-${BUILD_TIMESTAMP} \
-                            --namespace=${KUBE_NAMESPACE} \
+                            --namespace=default \
                             -- python3 manage.py migrate 
                         """
                 }
@@ -65,8 +64,8 @@ pipeline {
             sh """
                 kubectl set image deployment/deployment-student-survey \
                 survey=jsmolak93/swe645:latest-${BUILD_TIMESTAMP} \
-                -n ${KUBE_NAMESPACE} 
-                kubectl rollout status deployment/deployment-student-survey -n ${KUBE_NAMESPACE}
+                -n default 
+                kubectl rollout status deployment/deployment-student-survey -n default
             """
             }
         }
