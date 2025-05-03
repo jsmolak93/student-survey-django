@@ -24,5 +24,5 @@ router.register(r'surveys', SurveyViewSet, basename='survey')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),  
+    path('api/', include(router.urls)), 
 ]
