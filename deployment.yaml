@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: survey
-          image: gautam26/student-survey-django:latest
+          image: jsmolak93/swe645:latest
           ports:
             - containerPort: 8000
           env:
