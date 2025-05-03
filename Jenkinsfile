@@ -44,12 +44,19 @@ pipeline {
         }
         }
 
-        stage('Run database migrations') {
-        steps {
-            withCredentials([file(credentialsId: 'kubeConfig', variable: 'KUBECONFIG')]) {
-            sh "kubectl create job --from=cronjob/django-migrate django-migrate-${BUILD_TIMESTAMP} -n default"
+        stage('Run Database Migrations') {
+            steps {
+                withCredentials([file(credentialsId: KUBECONFIG_FILE,
+                                        variable: 'KUBECONFIG')]) {
+                    sh """
+                        # Launch one-off Job to run migrations; ignore errors so deploy always runs
+                        kubectl create job django-migrate-${BUILD_TIMESTAMP} \
+                            --image=jsmolak93/swe645:latest-${BUILD_TIMESTAMP} \
+                            --namespace=${KUBE_NAMESPACE} \
+                            -- python3 manage.py migrate 
+                        """
+                }
             }
-        }
         }
 
         stage('Deploy to Kubernetes') {
@@ -58,8 +65,8 @@ pipeline {
             sh """
                 kubectl set image deployment/deployment-student-survey \
                 survey=jsmolak93/swe645:latest-${BUILD_TIMESTAMP} \
-                -n default
-                kubectl rollout status deployment/deployment-student-survey -n default
+                -n ${KUBE_NAMESPACE} 
+                kubectl rollout status deployment/deployment-student-survey -n ${KUBE_NAMESPACE}
             """
             }
         }
